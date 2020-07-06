@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}<title>{{ title }}</title>{% endif %}
+    {% for cssFile in manifest["css"] %}<link rel="stylesheet" type="text/css" href="{{ root }}{{ cssFile }}"/>{% endfor %}
+  </head>
+  <body>
+    <div id="react-content"></div>
+  </body>
+  <script src="{{ root }}common.js"></script>
+  {% for jsFile in manifest["js"] %}<script src="{{ root }}{{ jsFile }}"></script>{% endfor %}
+</html>

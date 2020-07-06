@@ -1,0 +1,7 @@
+{
+  "name": "@ccui/plugin-description",
+  "version": "0.0.1",
+  "dependencies": {
+    "jsonml.js": "^0.1.0"
+  }
+}

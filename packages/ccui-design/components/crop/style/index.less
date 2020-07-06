@@ -1,0 +1,73 @@
+@drag-handle-width: 10px;
+@drag-handle-height: 10px;
+@drag-handle-background-color: rgba(0, 0, 0, 0.2);
+@drag-handle-border: 1px solid rgba(255, 255, 255, 0.7);
+@drag-bar-size: 6px;
+
+.ccui-image-crop {
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+
+  img {
+    -webkit-user-drag: none;
+  }
+
+  &-selection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 9999em rgba(0, 0, 0, 0.5);
+    cursor: move;
+  }
+
+  &-drag-handle {
+    position: absolute;
+
+    &::after {      
+      position: absolute;
+      display: block;      
+      box-sizing: border-box;
+      width: @drag-handle-width;
+      height: @drag-handle-height;
+      background-color: @drag-handle-background-color;
+      border: @drag-handle-border;
+      outline: 1px solid transparent;
+      content: '';
+    }
+  }
+
+  &-drag-bar {
+    position: absolute;
+
+    &.position-n {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: @drag-bar-size;
+      margin-top: -(@drag-bar-size / 2);
+    }
+    &.position-e {
+      top: 0;
+      right: 0;
+      width: @drag-bar-size;
+      height: 100%;
+      margin-right: -(@drag-bar-size / 2);
+    }
+    &.position-s {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: @drag-bar-size;
+      margin-bottom: -(@drag-bar-size / 2);
+    }
+    &.position-w {
+      top: 0;
+      left: 0;
+      width: @drag-bar-size;
+      height: 100%;
+      margin-left: -(@drag-bar-size / 2);
+    }
+  }
+}

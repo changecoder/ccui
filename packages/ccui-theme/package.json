@@ -1,0 +1,79 @@
+{
+  "name": "@ccui/theme",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "clean": "rimraf lib",
+    "prepublish": "npm run build && shx cp src/template.html lib/template.html",
+    "postpublish": "npm run clean"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "Firefox ESR",
+              "> 1%",
+              "ie >= 8",
+              "iOS >= 8",
+              "Android >= 4"
+            ]
+          }
+        }
+      ]
+    ]
+  },
+  "bin": {
+    "ccui": "./bin/ccui",
+    "ccui-start": "./bin/ccui-start"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@ccui/plugin-description": "^0.0.1",
+    "@ccui/plugin-react": "^0.0.1",
+    "autoprefixer": "^9.8.4",
+    "babel-loader": "^8.1.0",
+    "case-sensitive-paths-webpack-plugin": "^2.3.0",
+    "commander": "^5.1.0",
+    "css-loader": "^3.6.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "jsonml-to-react-element": "^1.1.11",
+    "less": "^3.11.3",
+    "less-loader": "^6.2.0",
+    "loader-utils": "^2.0.0",
+    "mark-twain": "^2.0.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "mkdirp": "^1.0.4",
+    "nunjucks": "^3.2.1",
+    "postcss-loader": "^3.0.0",
+    "ramda": "^0.27.0",
+    "react": "^16.13.1",
+    "react-dev-utils": "^10.2.1",
+    "resolve": "^1.17.0",
+    "rucksack-css": "^1.0.2",
+    "sass": "^1.26.9",
+    "sass-loader": "^9.0.1",
+    "terser-webpack-plugin": "^3.0.6",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.6",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpackbar": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "rimraf": "^3.0.2",
+    "shx": "^0.3.2"
+  }
+}
