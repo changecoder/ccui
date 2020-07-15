@@ -1,5 +1,5 @@
-@drag-handle-width: 10px;
-@drag-handle-height: 10px;
+@drag-handle-width: 6px;
+@drag-handle-height: 6px;
 @drag-handle-background-color: rgba(0, 0, 0, 0.2);
 @drag-handle-border: 1px solid rgba(255, 255, 255, 0.7);
 @drag-bar-size: 6px;
@@ -9,6 +9,10 @@
   overflow: hidden;
   cursor: crosshair;
 
+  &:focus {
+    outline: none;
+  }
+  
   img {
     -webkit-user-drag: none;
   }
@@ -36,6 +40,83 @@
       outline: 1px solid transparent;
       content: '';
     }
+  }
+
+  .position-n {
+    top: 0;
+    left: 50%;
+
+    cursor: n-resize;
+  }
+
+  .position-nw {
+    top: 0;
+    left: 0;
+
+    cursor: nw-resize;
+  }
+
+  .position-w {
+    top: 50%;
+    left: 0;
+
+    cursor: w-resize;
+  }
+
+  .position-sw {
+    bottom: 0;
+    left: 0;
+
+    &::after {
+      margin-top: -@drag-handle-height;
+    }
+
+    cursor: sw-resize;
+  }
+
+  .position-s {
+    bottom: 0;
+    left: 50%;
+
+    &::after {
+      margin-top: -@drag-handle-height;
+    }
+
+    cursor: s-resize;
+  }
+
+  .position-se {
+    bottom: 0;
+    right: 0;
+
+    &::after {
+      margin-top: -@drag-handle-height;
+      margin-left: -@drag-handle-width;
+    }
+  
+    cursor: se-resize;
+  }
+
+  .position-e {
+    top: 50%;
+    right: 0;
+
+    &::after {
+      margin-left: -@drag-handle-width;
+    }
+
+    cursor: e-resize;
+  }
+
+  .position-ne {
+    top: 0;
+    right: 0;
+
+    &::after {
+      margin-left: -@drag-handle-width;
+    }
+
+    cursor: ne-resize;
   }
 
   &-drag-bar {

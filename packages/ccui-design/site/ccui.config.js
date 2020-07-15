@@ -15,12 +15,6 @@ module.exports = {
       'ccui': path.join(process.cwd(), 'index')
     }
 
-    config.externals = {
-      'react-dom': 'ReactDOM',
-      'react-router-config': 'ReactRouterConfig',
-      'react-router-dom': 'ReactRouterDOM',
-    };
-
     if (isDev) {
       config.devtool = 'source-map';
 

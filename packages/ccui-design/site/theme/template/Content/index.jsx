@@ -22,7 +22,7 @@ const Content = ({ match, pageData, toReactElement }) => {
     {
       Object.keys(demos).map(key => {
         const demo = demos[key]
-        return <Demo content={demo.content} key={key} />
+        return <Demo content={demo.content} meta={demo.meta} key={key} />
       })
     }
     </div>
