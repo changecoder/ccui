@@ -10,14 +10,24 @@ module.exports = {
   },
   webpackConfig(config) {
     config.resolve.alias = {
-      'mkt-design': path.join(process.cwd(), 'index'),
-      site: path.join(process.cwd(), 'site')
+      'ccui/lib': path.join(process.cwd(), 'components'),
+      'ccui/es': path.join(process.cwd(), 'components'),
+      'ccui': path.join(process.cwd(), 'index')
     }
+
+    config.externals = {
+      'react-dom': 'ReactDOM',
+      'react-router-config': 'ReactRouterConfig',
+      'react-router-dom': 'ReactRouterDOM',
+    };
 
     if (isDev) {
       config.devtool = 'source-map';
 
-      config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') }
+      config.resolve.alias = { 
+        ...config.resolve.alias, 
+        react: require.resolve('react')
+      }
     }
 
     delete config.module.noParse

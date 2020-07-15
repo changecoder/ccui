@@ -18,6 +18,7 @@ export default function updateWebpackConfig(webpackConfig, mode) {
     webpackConfig.output.path = path.join(process.cwd(), ccConfig.output)
   }
   webpackConfig.output.publicPath = context.isBuild ? siteConfig.root : '/'
+
   if (mode === 'start') {
     styleLoadersConfig.forEach((config) => {
       webpackConfig.module.rules.push({
